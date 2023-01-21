@@ -1,29 +1,11 @@
-# 3. Пользователь вводит месяц в виде целого числа от 1 до 12.
-# Сообщить, к какому времени года относится месяц (зима, весна, лето, осень). Напишите решения через list и dict.
+# 3. Реализовать функцию my_func(), которая принимает три позиционных аргумента и возвращает сумму наибольших двух
+# аргументов.
 
-# Решение через list
-task3_list = [['Зима', 12, 1, 2], ['Весна', 3, 4, 5], ['Лето', 6, 7, 8], ['Осень', 9, 10, 11]]
+def summ_max(arg_1, arg_2, arg_3):
+    arr = [arg_1, arg_2, arg_3]
+    a = list(filter(lambda x: x != max(arr), arr))
+    return max(arr) + max(a)
 
-month_num = int(input('Введите номер месяца '))
-if month_num in range(1, 13):
-    for i, el in enumerate(task3_list):
-        if month_num in el[1:4]:
-            print(f'Cезон - {el[0]}')
-            break
-else:
-    print('Ошибка! Введен некорректный номер месяца')
+print(summ_max(4, 76, 1))
 
-# Решение через dict
-task3_dict = {'Зима':  [12, 1, 2],
-              'Весна': [3, 4, 5],
-              'Лето':  [6, 7, 8],
-              'Осень': [9, 10, 11]}
 
-month_num = int(input('Введите номер месяца '))
-if month_num in range(1, 13):
-    for i in task3_dict.items():
-        if month_num in i[1]:
-             print(f'Cезон - {i[0]}')
-             break
-else:
-    print('Ошибка! Введен некорректный номер месяца')
