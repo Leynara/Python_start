@@ -1,43 +1,16 @@
-# 1. Реализовать функцию, принимающую два числа (позиционные аргументы) и выполняющую их деление.
-# Числа запрашивать у пользователя, предусмотреть обработку ситуации деления на ноль.
+#1. Реализовать скрипт, в котором должна быть предусмотрена функция расчёта заработной платы сотрудника. Используйте в
+# нём формулу: (выработка в часах*ставка в час) + премия. Во время выполнения расчёта для конкретных значений необходимо
+# запускать скрипт с параметрами.
 
-def divide_num(*args):
+import sys
 
-    return args[0]/args[1]
+function_obj, hours_worked_v, rate_per_hour_v, premium_v = sys.argv
+print(function_obj)
 
-
-def get_num(order_num):
-
-    while True:
-        input_num = input(f'Введите {order_num} число: ')
-        if input_num == '':
-            break
-
-        try:
-            input_num = float(input_num)
-        except ValueError:
-            print('Неверный формат ввода')
-        else:
-            break
-
-    return input_num
-
-
-while True:
-    first_num = get_num(1)
-    if first_num == '':
-        break
-
-    second_num = get_num(2)
-    if second_num == '':
-        break
-
+def payroll_calculation(hours_worked, rate_per_hour, premium):
     try:
-        divide_res = divide_num(first_num, second_num)
-    except ZeroDivisionError:
-        print('Ошибка деления на ноль!')
-        continue
-    else:
-        print(f'Результат операции {first_num} : {second_num} = {divide_res}')
+        print(f'Заработная плата сотрудника составляет {int(hours_worked) * int(rate_per_hour) + int(premium)}')
+    except TypeError:
+        print('Вы ввели недопустимое значение')
 
-print('Операция отменена!')
+payroll_calculation(hours_worked_v, rate_per_hour_v, premium_v)

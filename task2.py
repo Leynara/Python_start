@@ -1,28 +1,13 @@
-# 2. Выполнить функцию, которая принимает несколько параметров, описывающих данные пользователя: имя, фамилия,
-# год рождения, город проживания, email, телефон. Функция должна принимать параметры как именованные аргументы.
-# Осуществить вывод данных о пользователе одной строкой.
+# 2.Представлен список чисел. Необходимо вывести элементы исходного списка, значения которых больше предыдущего
+# элемента.
+# Подсказка: элементы, удовлетворяющие условию, оформить в виде списка. Для его формирования используйте генератор.
+# Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
+# Результат: [12, 44, 4, 10, 78, 123].
 
-def user_prop(first_name='', last_name='', birth_year='', city='', email='', phone_num=''):
+number_list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
+new_number_list = []
 
-    if first_name:
-        print('Имя:', first_name, end = '; ')
-
-    if last_name:
-        print('Фамилия:', last_name, end = '; ')
-
-    if birth_year:
-        print('Год рождения:', birth_year, end = '; ')
-
-    if city:
-        print('Город проживания:', city, end = '; ')
-
-    if email:
-        print('e-mail:', email, end = '; ')
-
-    if phone_num:
-        print('№ телефона:', phone_num, end = '; ')
-
-    print('\n')
-
-user_prop(first_name = 'Ivan', last_name = 'Ivanov', birth_year = 1995, city='Moscow', email='Ivanov@mail.ru',
-          phone_num='89169161616')
+for i in range(len(number_list)):
+    if number_list[i - 1] < number_list[i]:
+        new_number_list.append(number_list[i])
+print(new_number_list)
